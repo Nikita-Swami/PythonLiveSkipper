@@ -24,8 +24,8 @@ def setup():
     driver.get("https://beatskpltest.prowessbeat.net/")
     return driver
 
-@allure.epic("Dhanuka Login Test")
-@allure.feature("TC#1 Dhanuka Positive Test")
+@allure.epic("Skipper Login Test")
+@allure.feature("TC#1 Skipper Positive Test")
 @pytest.mark.positive
 
 def test_skipper_dms(setup):
