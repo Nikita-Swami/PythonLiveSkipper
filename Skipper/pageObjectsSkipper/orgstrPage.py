@@ -94,17 +94,17 @@ class MasterCommonSkipperOrganizationStructure:
     def employee_code(self):
         wait = WebDriverWait(self.driver, 25)
         employee_code_text = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@id='SHORTNAME']")))
-        employee_code_text.send_keys("TESTDSO001")
+        employee_code_text.send_keys("TESTDSO002")
 
     def designation(self):
         wait = WebDriverWait(self.driver, 25)
         designation_text = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@id='DESCRIPTION']")))
-        designation_text.send_keys("TESTDSONEW")
+        designation_text.send_keys("TESTDSODATA")
 
     def first_name(self):
         wait = WebDriverWait(self.driver, 25)
         first_name_text = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@id='FNAME']")))
-        first_name_text.send_keys("TESTDSO")
+        first_name_text.send_keys("ABC")
 
     def middle_name(self):
         wait = WebDriverWait(self.driver, 25)
@@ -114,19 +114,54 @@ class MasterCommonSkipperOrganizationStructure:
     def last_name(self):
         wait = WebDriverWait(self.driver, 25)
         last_name_text = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@id='LNAME']")))
-        last_name_text.send_keys("NEW")
+        last_name_text.send_keys("DEF")
 
     def login_id(self):
         wait = WebDriverWait(self.driver, 25)
         login_id_text = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@id='LOGINID']")))
-        login_id_text.send_keys("TESTDSO001")
+        login_id_text.send_keys("TESTDSO002")
 
     def email_id(self):
         wait = WebDriverWait(self.driver, 25)
         email_id_text = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@id='EMAIL']")))
-        email_id_text.send_keys("abcde@gmail.com")
+        email_id_text.send_keys("pqr@gmail.com")
 
     def mobile_no(self):
         wait = WebDriverWait(self.driver, 25)
         mobile_no_text = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@id='MOBILE']")))
         mobile_no_text.send_keys("7890654321")
+
+    def dob(self):
+        wait = WebDriverWait(self.driver, 25)
+        dob_text = wait.until(EC.presence_of_element_located((By.XPATH, "//input[@id='DOB']")))
+        dob_text.clear()
+        dob_text.send_keys("22-02-2026")
+
+    def select_dropdown_stockist(self):
+        #Step 1: Click the Select2 control to open the dropdown
+        wait = WebDriverWait(self.driver, 25)
+        drop_down_element = wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@id='s2id_autogen4']")))
+        drop_down_element.click()
+
+        # Step 2: Wait for the input box inside the dropdown and type
+        wait = WebDriverWait(self.driver, 25)
+        dropdown_element = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[contains(@class,'select2-input')]")))
+        dropdown_element.send_keys("Nutan Trading Corporation")
+        dropdown_element.send_keys(Keys.ENTER)
+
+        # Step 3 (optional): Click the matching option
+        wait = WebDriverWait(self.driver, 25)
+        click_and_select = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[@id='select2-drop']/ul/li/div")))
+        click_and_select.click()
+
+    def scroll_down2(self, element):
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+
+    def run_test2(self):
+        target = self.driver.find_element(By.XPATH, "//input[@id='DOB']")
+        self.scroll_down(target)
+
+    def save_button(self):
+        wait = WebDriverWait(self.driver, 25)
+        save_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@id='btnSubmit_OC']")))
+        save_button.click()

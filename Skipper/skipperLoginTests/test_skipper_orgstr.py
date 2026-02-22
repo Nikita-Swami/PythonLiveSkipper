@@ -104,5 +104,21 @@ def test_skipper_master_starting_number(setup):
     mobile_no_Page.mobile_no()
     time.sleep(10)
 
+    dob_Page = MasterCommonSkipperOrganizationStructure(driver=setup)
+    dob_Page.dob()
+    time.sleep(10)
+
+    stockist_Page = MasterCommonSkipperOrganizationStructure(driver=setup)
+    stockist_Page.select_dropdown_stockist()
+    time.sleep(10)
+
+    run_test_scroll2 = MasterCommonSkipperOrganizationStructure(driver=setup)
+    run_test_scroll2.run_test2()
+    time.sleep(10)
+
+    save_form_Page = MasterCommonSkipperOrganizationStructure(driver=setup)
+    save_form_Page.save_button()
+    time.sleep(10)
+
 
 
